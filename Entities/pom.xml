@@ -5,12 +5,12 @@
 
     <groupId>com.elcartero</groupId>
     <artifactId>Entities</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.0-SNAPSHOT</version>
 
     <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.5.RELEASE</version>
+        <groupId>com.elcartero</groupId>
+		<artifactId>elcartero</artifactId>
+		<version>0.1.0-SNAPSHOT</version>
     </parent>
 
     <dependencies>
