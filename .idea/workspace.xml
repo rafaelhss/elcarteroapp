@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c3e69f1e-a250-426c-8521-f5313b873f95" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Entities/pom.xml" afterPath="$PROJECT_DIR$/Entities/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ScheduledCrawler/pom.xml" afterPath="$PROJECT_DIR$/ScheduledCrawler/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/elcartero.iml" afterPath="$PROJECT_DIR$/elcartero.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-    </list>
+    <list default="true" id="c3e69f1e-a250-426c-8521-f5313b873f95" name="Default" comment="" />
     <ignored path="elcartero.iws" />
     <ignored path=".idea/workspace.xml" />
     <ignored path="$PROJECT_DIR$/Entities/target/" />
