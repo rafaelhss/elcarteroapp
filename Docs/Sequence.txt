@@ -1,0 +1,28 @@
+title Content crawling process (ex: hardMob)
+
+ScheduledCrawler->"hardMobCrawler:SourceCrawler": crawl("hardMobCrawler")
+note over ScheduledCrawler: Tarefa agendada. Uma para cada SourceCrawler
+note over "hardMobCrawler:SourceCrawler": Um SourceCrawler para cada fonte (G1, HardMob, Insta, etc...)
+activate "hardMobCrawler:SourceCrawler"
+"hardMobCrawler:SourceCrawler"->ContentSourceRepository: SELECT Url, Mask
+
+loop para cada Url
+    "hardMobCrawler:SourceCrawler"->+"www.hardmob.com:SOURCE(Fonte externa)": 
+    "www.hardmob.com:SOURCE(Fonte externa)"-->-"hardMobCrawler:SourceCrawler": conteudo bruto 
+    "hardMobCrawler:SourceCrawler"->"htmlParser:SourceParser": parse(conteudo, Mask)
+    activate htmlParser:SourceParser
+    note right of "htmlParser:SourceParser": class Content \n+title String\n+text ArrayList<String>\n+images ArrayList<Image>
+    "htmlParser:SourceParser"-->-"hardMobCrawler:SourceCrawler": ArrayList<Content>
+    
+end
+loop para cada Content
+    "hardMobCrawler:SourceCrawler"->ContentManager: insert(Content) 
+    activate ContentManager
+    ContentManager->ContentManager: Generate Hash
+    ContentManager->ContentRepository: Check for identical duplicates (hash)
+    ContentManager->ContentManager: Discard duplicates
+    note right of ContentManager: TODO: verificar \nduplicação por \nsemelhança de texto
+    ContentManager->ContentRepository: insert(Content)
+    ContentManager-->-"hardMobCrawler:SourceCrawler":
+end
+"hardMobCrawler:SourceCrawler"-->-ScheduledCrawler:

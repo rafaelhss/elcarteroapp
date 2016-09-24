@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/elcartero.iml" filepath="$PROJECT_DIR$/elcartero.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Entities/entities.iml" filepath="$PROJECT_DIR$/Entities/entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/MessageGenerator/messagegenerator.iml" filepath="$PROJECT_DIR$/MessageGenerator/messagegenerator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NewsCrawler/newscrawler.iml" filepath="$PROJECT_DIR$/NewsCrawler/newscrawler.iml" />
+      <module fileurl="file://$PROJECT_DIR$/RestApi/restapi.iml" filepath="$PROJECT_DIR$/RestApi/restapi.iml" />
+    </modules>
+  </component>
+</project>

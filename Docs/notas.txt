@@ -1,0 +1,12 @@
+
+
+
+
+- Cada docker se registra passando seu numero de remetente
+- INternamente eu trabalhp com ID de remetente
+- preciso de uma tabela de-para celular x id
+
+API MENSAGENS
+-> Recebida (enviada pelo usuario)
+Mensagem
+ possui array de operacoes
