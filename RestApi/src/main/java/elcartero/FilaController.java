@@ -4,8 +4,13 @@ import elcartero.noticia.Noticia;
 import elcartero.noticia.NoticiaQueue;
 import elcartero.outmessage.OutMessage;
 import org.springframework.amqp.core.AmqpTemplate;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
+import org.springframework.amqp.rabbit.connection.RabbitAccessor;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.jca.cci.connection.SingleConnectionFactory;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.MalformedURLException;
@@ -16,13 +21,14 @@ import java.util.Date;
 @RequestMapping("/fila")
 public class FilaController {
 
+
     @RequestMapping("noticias/primeira")
     public OutMessage getPrimeiraNoticia() {
         ApplicationContext context = new AnnotationConfigApplicationContext(RabbitConfiguration.class);
         AmqpTemplate amqpTemplate = context.getBean(AmqpTemplate.class);
         Object o = amqpTemplate.receiveAndConvert();
         OutMessage n = (OutMessage) o;
-
+        context.getBean(CachingConnectionFactory.class).destroy();
         return n;
     }
 
