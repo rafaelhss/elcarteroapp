@@ -3,6 +3,7 @@ package crawler.batch;
 import elcartero.outmessage.OutMessage;
 import elcartero.noticia.NoticiaRepository;
 import elcartero.outmessage.OutMessageRepository;
+import org.springframework.amqp.rabbit.connection.CachingConnectionFactory;
 import org.springframework.batch.item.ItemWriter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -31,6 +32,7 @@ public class OutMessageWriter implements ItemWriter<OutMessage> {
 
         list.stream().forEach(noticia -> amqpTemplate.convertAndSend(noticia));
 
+        context.getBean(CachingConnectionFactory.class).destroy();
         //TODO quando esse codigo roda o batch nunca abaca.... :-((
 
         System.out.println("enviado (?)");
