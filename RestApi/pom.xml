@@ -89,7 +89,7 @@
         </dependency>
         <dependency>
             <groupId>com.elcartero</groupId>
-            <artifactId>entities</artifactId>
+            <artifactId>Entities</artifactId>
             <version>0.1.0</version>
         </dependency>
     </dependencies>
