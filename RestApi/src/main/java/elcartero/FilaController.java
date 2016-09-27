@@ -35,8 +35,8 @@ public class FilaController {
 
 
 
-    @RequestMapping(value = "noticias/teste", method = RequestMethod.GET)
-    public void enfileirarNoticia() {
+    @RequestMapping(value = "noticias/teste/{q}", method = RequestMethod.GET)
+    public void enfileirarNoticia(@PathVariable("q") int q) {
         ApplicationContext context = new AnnotationConfigApplicationContext(RabbitConfiguration.class);
         AmqpTemplate amqpTemplate = context.getBean(AmqpTemplate.class);
         OutMessage teste = new OutMessage();
@@ -49,8 +49,9 @@ public class FilaController {
         teste.setTitle("teste tit");
 
 
-
-        amqpTemplate.convertAndSend(teste);
+        for(int i=0; i<q; i++) {
+            amqpTemplate.convertAndSend(teste);
+        }
         System.out.println("enviado (?)");
         context.getBean(CachingConnectionFactory.class).destroy();
 
