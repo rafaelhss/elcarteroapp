@@ -52,6 +52,8 @@ public class FilaController {
 
         amqpTemplate.convertAndSend(teste);
         System.out.println("enviado (?)");
+        context.getBean(CachingConnectionFactory.class).destroy();
+
     }
 
 
