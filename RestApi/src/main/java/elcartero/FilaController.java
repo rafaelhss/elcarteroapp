@@ -48,6 +48,9 @@ public class FilaController {
 
         teste.setTitle("teste tit");
 
+        Subscriber subscriber = new Subscriber();
+        subscriber.setDeliveryAddress("+5561981014885");
+
 
         for(int i=0; i<q; i++) {
             amqpTemplate.convertAndSend(teste);
