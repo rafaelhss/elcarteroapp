@@ -50,7 +50,10 @@ public class FilaController {
         teste.setTitle("teste tit");
 
         Subscriber subscriber = new Subscriber();
-        subscriber.setDeliveryAddress("556196083232@c.us");
+       // subscriber.setDeliveryAddress("556196083232@c.us");
+        subscriber.setDeliveryAddress("556181123858@c.us");
+
+
 
         teste.setSubscriber(subscriber);
 
