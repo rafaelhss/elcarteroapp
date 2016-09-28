@@ -38,11 +38,11 @@ public class SubscriptionService {
 
     public void criarTeste() {
         Subscriber s1 = new Subscriber();
-        s1.setDeliveryAddress("61981014885");
+        s1.setDeliveryAddress("556196083232@c.us");
         s1 = subscriberRepository.save(s1);
 
         Subscriber s2 = new Subscriber();
-        s2.setDeliveryAddress("61999999999");
+        s2.setDeliveryAddress("556181123858@c.us");
         s2 = subscriberRepository.save(s2);
 
         ContentChannel c1 = new ContentChannel();
