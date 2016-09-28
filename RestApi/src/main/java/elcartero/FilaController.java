@@ -36,8 +36,8 @@ public class FilaController {
 
 
 
-    @RequestMapping(value = "noticias/teste/{q}", method = RequestMethod.GET)
-    public void enfileirarNoticia(@PathVariable("q") int q) {
+    @RequestMapping(value = "noticias/teste/{q}/{dest}", method = RequestMethod.GET)
+    public void enfileirarNoticia(@PathVariable("q") int q, @PathVariable("dest") String dest) {
         ApplicationContext context = new AnnotationConfigApplicationContext(RabbitConfiguration.class);
         AmqpTemplate amqpTemplate = context.getBean(AmqpTemplate.class);
         OutMessage teste = new OutMessage();
@@ -51,7 +51,7 @@ public class FilaController {
 
         Subscriber subscriber = new Subscriber();
        // subscriber.setDeliveryAddress("556196083232@c.us");
-        subscriber.setDeliveryAddress("556181123858@c.us");
+        subscriber.setDeliveryAddress(dest + "@c.us");
 
 
 
