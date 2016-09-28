@@ -49,7 +49,7 @@ public class FilaController {
         teste.setTitle("teste tit");
 
         Subscriber subscriber = new Subscriber();
-        subscriber.setDeliveryAddress("+5561981014885");
+        subscriber.setDeliveryAddress("556181014885@c.us");
 
         teste.setSubscriber(subscriber);
 
