@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;
+import java.util.Random;
 
 @RestController
 @RequestMapping("/fila")
@@ -44,7 +45,7 @@ public class FilaController {
         teste.setText("teste");
 
         teste.setGenerationDate(new Date());
-        teste.setId(154);
+        teste.setId(new Random().nextInt(Integer.MAX_VALUE));
 
         teste.setTitle("teste tit");
 
