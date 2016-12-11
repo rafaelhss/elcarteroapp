@@ -31,20 +31,9 @@ public class BatchConfiguration {
     @Autowired
     public StepBuilderFactory stepBuilderFactory;
 
-    //@Autowired
-   // public DataSource dataSource;
-
     @Autowired
     public NoticiaWriter noticiaWriter;
 
-
-    // tag::readerwriterprocessor[]
-/*    @Bean
-    public ItemReader<Noticia> reader() {
-        FakeCrawler reader = new FakeCrawler();
-        return reader;
-    }
-*/
     @Bean
     public NoticiaProcessor processor() {
         return new NoticiaProcessor();
@@ -52,24 +41,14 @@ public class BatchConfiguration {
 
     @Bean
     public ItemWriter<Noticia> writer() {
-     /*   JdbcBatchItemWriter<Noticia> writer = new JdbcBatchItemWriter<Noticia>();
-        writer.setItemSqlParameterSourceProvider(new BeanPropertyItemSqlParameterSourceProvider<Noticia>());
-        writer.setSql("INSERT INTO noticia (titulo, texto) VALUES (:titulo, :texto)");
-        writer.setDataSource(dataSource);*/
         return noticiaWriter;
     }
-    // end::readerwriterprocessor[]
-
-    // tag::listener[]
 
     @Bean
     public JobExecutionListener listener() {
         return new JobCompletionNotificationListener();
     }
 
-    // end::listener[]
-
-    // tag::jobstep[]
     @Bean
     public Job importUserJob() {
         return jobBuilderFactory.get("importUserJob")
